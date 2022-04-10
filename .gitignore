@@ -1,4 +1,12 @@
+# ide
 .idea
 .DS_Store
 
+# runtime
 *.pyc
+
+# database file
+*.sqllite3
+*.sqllite
+
+settings/local.py
