@@ -6,7 +6,7 @@
 *.pyc
 
 # database file
-*.sqllite3
-*.sqllite
+*.sqlite3
+*.sqlite
 
 settings/local.py
