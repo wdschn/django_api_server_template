@@ -8,9 +8,13 @@ from django.contrib.auth.models import PermissionsMixin, UserManager
 
 
 class CustomUserManager(UserManager):
+    """
+    Remove email field from user when cerateuser by using command line
+    """
+
     def _create_user(self, username, email, password, **extra_fields):
         """
-        Create and save a user with the given username, email, and password.
+        Create and save a user with the given username and password.
         """
         if not username:
             raise ValueError('The given username must be set')
@@ -63,6 +67,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         db_table = 'user'
         verbose_name = _('user')
         verbose_name_plural = verbose_name
+        ordering = ['-id']
 
     def __str__(self):
         return self.username
