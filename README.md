@@ -9,4 +9,6 @@
 ## 开发进度：
 - [x] Django restframework 集成
 - [x] djangorestframework-simplejwt 集成
-- [ ] drf-yasg 集成
+- [x] drf-yasg 集成
+- [ ] 密码传输非对称加密
+- [ ] 一键改名脚本
