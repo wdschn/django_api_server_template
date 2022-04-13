@@ -11,6 +11,6 @@
 - [x] djangorestframework-simplejwt 集成
 - [x] drf-yasg 集成
 - [ ] RequestId 中间件 
-- [ ] 请求时间中间件
+- [x] 请求时间中间件
 - [ ] 密码传输非对称加密
 - [ ] 一键改名脚本
