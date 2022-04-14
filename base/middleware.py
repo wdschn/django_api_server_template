@@ -10,3 +10,4 @@ class ProcessDurationMiddleware(object):
         response = self.get_response(request)
         response['X-Page-Duration-ms'] = int((time.time() - start_time) * 1000)
         return response
+
