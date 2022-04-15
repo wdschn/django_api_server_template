@@ -9,3 +9,7 @@ INSTALLED_APPS += [
 REST_FRAMEWORK['DEFAULT_AUTHENTICATION_CLASSES'] += [
     'rest_framework.authentication.BasicAuthentication'
 ]
+
+REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] += [
+    'rest_framework.renderers.BrowsableAPIRenderer'
+]

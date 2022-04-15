@@ -1,6 +1,8 @@
 from django.contrib.auth.hashers import make_password
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
+from rest_framework_simplejwt.views import TokenObtainPairView
+
 from user.serializers import (
     UserSerializer,
     UserDetailSerializer
@@ -20,3 +22,7 @@ class UserInfoView(generics.RetrieveAPIView):
 
     def get_object(self):
         return self.request.user
+
+
+class UserLoginView(TokenObtainPairView):
+    permission_classes = [AllowAny]

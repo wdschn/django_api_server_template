@@ -144,11 +144,17 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'base.renderer.CustomJsonRenderer',
+    ],
+
     'DEFAULT_PAGINATION_CLASS': 'base.pagination.CustomPageNumberPagination',
     'PAGE_SIZE': 10,
     # 'DEFAULT_FILTER_BACKENDS': (
     #     'django_filters.rest_framework.DjangoFilterBackend',
     # ),
+
+    'NON_FIELD_ERRORS_KEY': "errors",
 
     # Date and time format
     'DATETIME_FORMAT': "%Y-%m-%d %H:%M:%S",
