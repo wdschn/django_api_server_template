@@ -46,7 +46,7 @@ class CustomJsonRenderer(JSONRenderer):
         elif response_code >= 500:
             response_data = {
                 'code': response_code,
-                'msg': 'Internal Server Error'
+                'msg': 'Internal Server Error' if settings.DEBUG is False else data
             }
 
         return super(CustomJsonRenderer, self).render(response_data, accepted_media_type, renderer_context)

@@ -4,9 +4,10 @@
 
 # runtime
 *.pyc
+__pycache__/
 
 # database file
 *.sqlite3
 *.sqlite
 
-settings/local.py
+django_api_server/settings/local.py

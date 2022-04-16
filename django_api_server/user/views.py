@@ -17,12 +17,12 @@ class UserView(generics.CreateAPIView):
         serializer.save(password=make_password(serializer.validated_data['password']))
 
 
+class UserLoginView(TokenObtainPairView):
+    permission_classes = [AllowAny]
+
+
 class UserInfoView(generics.RetrieveAPIView):
     serializer_class = UserDetailSerializer
 
     def get_object(self):
         return self.request.user
-
-
-class UserLoginView(TokenObtainPairView):
-    permission_classes = [AllowAny]
