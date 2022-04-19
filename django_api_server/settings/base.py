@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Dependent libraries
+    'corsheaders',
     'rest_framework',
+
 
     # apps
     'user.apps.UserConfig'
@@ -47,6 +49,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'base.middleware.ProcessDurationMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
