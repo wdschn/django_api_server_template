@@ -29,7 +29,7 @@ python3 ./rename.py new_project_name
 - [x] Django restframework 集成
 - [x] djangorestframework-simplejwt 集成
 - [x] drf-yasg 集成
-- [ ] RequestId 中间件
+- [x] RequestId 中间件
 - [x] 请求时间中间件
 - [ ] 密码传输非对称加密
 - [x] 一键改名脚本
