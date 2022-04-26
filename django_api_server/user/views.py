@@ -1,3 +1,5 @@
+import logging
+
 from django.contrib.auth.hashers import make_password
 from rest_framework import generics
 from rest_framework.permissions import AllowAny
@@ -7,6 +9,8 @@ from user.serializers import (
     UserSerializer,
     UserDetailSerializer
 )
+
+logger = logging.getLogger('api_server.user.views')
 
 
 class UserView(generics.CreateAPIView):

@@ -1,0 +1,2 @@
+class PycryptoException(Exception):
+    pass

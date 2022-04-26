@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'base.middleware.ProcessDurationMiddleware',
+    'base.middleware.RequestIdMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -135,6 +136,61 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'user.User'
 
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "filters": {
+        "require_debug_false": {
+            "()": "django.utils.log.RequireDebugFalse"
+        }
+    },
+    "formatters": {
+        "complete": {
+            "format": "%(asctime)s %(levelname)s %(module)s: %(message)s"
+        },
+        "simple": {
+            "format": "%(asctime)s %(levelname)s: %(message)s"
+        },
+        "null": {
+            "format": "%(message)s",
+        },
+    },
+    "handlers": {
+        "null": {
+            "level": "DEBUG",
+            "class": "logging.NullHandler",
+        },
+        "console": {
+            "level": "DEBUG",
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+        },
+        "mail_admins": {
+            "level": "ERROR",
+            "filters": ["require_debug_false"],
+            "class": "django.utils.log.AdminEmailHandler",
+        },
+
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["null", "mail_admins"],
+            "propagate": True,
+            "level": "INFO",
+        },
+        "django.request": {
+            "handlers": ["mail_admins", "console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+        "api_server": {
+            "handlers": ["console", ],
+            "level": "DEBUG",
+            "propagate": True,
+        },
+    }
+}
+
 REST_FRAMEWORK = {
     # 'DEFAULT_PERMISSION_CLASSES': [
     #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
@@ -201,3 +257,4 @@ SIMPLE_JWT = {
 }
 
 RSA_PRIVATE_KEY_PATH = ''
+REQUEST_ID_HEADER_NAME = 'X-REQUEST-ID'
