@@ -46,8 +46,8 @@ if __name__ == '__main__':
     parser.add_argument('new_name', type=str)
     args = parser.parse_args()
 
-    project_folder = BASE_DIR + '/django_api_server_template'
-    project_name = 'django_api_server_template'
+    project_folder = BASE_DIR + '/django_api_server'
+    project_name = 'django_api_server'
 
     update_project_files(project_folder, project_name, args.new_name)
 
